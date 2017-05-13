@@ -52,7 +52,7 @@ Partial Class Screen
         Me.tkbSquelch = New System.Windows.Forms.TrackBar()
         Me.lblSquelch = New System.Windows.Forms.Label()
         Me.lblBank = New System.Windows.Forms.Label()
-        Me.lblChannelCtrl = New System.Windows.Forms.Label()
+        Me.lblChannel = New System.Windows.Forms.Label()
         Me.btnOnOff = New System.Windows.Forms.Button()
         Me.btnCLR = New System.Windows.Forms.Button()
         Me.btnTuneUp = New System.Windows.Forms.Button()
@@ -64,9 +64,8 @@ Partial Class Screen
         Me.lblPreAmp = New System.Windows.Forms.Label()
         Me.pgbSMeter = New System.Windows.Forms.ProgressBar()
         Me.lblSMeter = New System.Windows.Forms.Label()
-        Me.lblMulti = New System.Windows.Forms.Label()
         Me.lblXmitFreq = New System.Windows.Forms.Label()
-        Me.lblchannel = New System.Windows.Forms.Label()
+        Me.lblbnkchan = New System.Windows.Forms.Label()
         Me.btnBankUp = New System.Windows.Forms.Button()
         Me.btnBankDown = New System.Windows.Forms.Button()
         Me.btnChanUp = New System.Windows.Forms.Button()
@@ -93,15 +92,30 @@ Partial Class Screen
         Me.lblMode = New System.Windows.Forms.Label()
         Me.lblGPS = New System.Windows.Forms.Label()
         Me.btnVFO = New System.Windows.Forms.Button()
+        Me.btnMulti = New System.Windows.Forms.Button()
+        Me.grbXmitFreq = New System.Windows.Forms.GroupBox()
+        Me.grbButtons = New System.Windows.Forms.GroupBox()
+        Me.grbMicGain = New System.Windows.Forms.GroupBox()
+        Me.lblRFPowerR = New System.Windows.Forms.Label()
+        Me.lblMicGainR = New System.Windows.Forms.Label()
+        Me.lblRFP = New System.Windows.Forms.Label()
+        Me.lblMG = New System.Windows.Forms.Label()
+        Me.lblRfPowerL = New System.Windows.Forms.Label()
+        Me.lblMicGainL = New System.Windows.Forms.Label()
+        Me.pgbRfPower = New System.Windows.Forms.ProgressBar()
+        Me.pgbMicGain = New System.Windows.Forms.ProgressBar()
         CType(Me.tkbVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tkbSquelch, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grbXmitFreq.SuspendLayout()
+        Me.grbButtons.SuspendLayout()
+        Me.grbMicGain.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnButton1
         '
         Me.btnButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnButton1.Location = New System.Drawing.Point(166, 474)
+        Me.btnButton1.Location = New System.Drawing.Point(0, 6)
         Me.btnButton1.Name = "btnButton1"
         Me.btnButton1.Size = New System.Drawing.Size(148, 58)
         Me.btnButton1.TabIndex = 0
@@ -112,7 +126,7 @@ Partial Class Screen
         '
         Me.btnButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnButton2.Location = New System.Drawing.Point(330, 474)
+        Me.btnButton2.Location = New System.Drawing.Point(164, 6)
         Me.btnButton2.Name = "btnButton2"
         Me.btnButton2.Size = New System.Drawing.Size(148, 58)
         Me.btnButton2.TabIndex = 1
@@ -123,7 +137,7 @@ Partial Class Screen
         '
         Me.btnButton3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnButton3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnButton3.Location = New System.Drawing.Point(494, 474)
+        Me.btnButton3.Location = New System.Drawing.Point(328, 6)
         Me.btnButton3.Name = "btnButton3"
         Me.btnButton3.Size = New System.Drawing.Size(148, 58)
         Me.btnButton3.TabIndex = 2
@@ -134,7 +148,7 @@ Partial Class Screen
         '
         Me.btnButton4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnButton4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnButton4.Location = New System.Drawing.Point(658, 474)
+        Me.btnButton4.Location = New System.Drawing.Point(492, 6)
         Me.btnButton4.Name = "btnButton4"
         Me.btnButton4.Size = New System.Drawing.Size(148, 58)
         Me.btnButton4.TabIndex = 3
@@ -145,7 +159,7 @@ Partial Class Screen
         '
         Me.btnButton5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnButton5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnButton5.Location = New System.Drawing.Point(822, 474)
+        Me.btnButton5.Location = New System.Drawing.Point(656, 6)
         Me.btnButton5.Name = "btnButton5"
         Me.btnButton5.Size = New System.Drawing.Size(148, 58)
         Me.btnButton5.TabIndex = 4
@@ -380,23 +394,23 @@ Partial Class Screen
         '
         'lblBank
         '
-        Me.lblBank.AutoSize = True
-        Me.lblBank.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBank.Location = New System.Drawing.Point(24, 262)
+        Me.lblBank.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBank.Location = New System.Drawing.Point(16, 328)
         Me.lblBank.Name = "lblBank"
-        Me.lblBank.Size = New System.Drawing.Size(56, 24)
+        Me.lblBank.Size = New System.Drawing.Size(111, 24)
         Me.lblBank.TabIndex = 37
         Me.lblBank.Text = "Bank"
+        Me.lblBank.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'lblChannelCtrl
+        'lblChannel
         '
-        Me.lblChannelCtrl.AutoSize = True
-        Me.lblChannelCtrl.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblChannelCtrl.Location = New System.Drawing.Point(24, 327)
-        Me.lblChannelCtrl.Name = "lblChannelCtrl"
-        Me.lblChannelCtrl.Size = New System.Drawing.Size(59, 24)
-        Me.lblChannelCtrl.TabIndex = 38
-        Me.lblChannelCtrl.Text = "Chan"
+        Me.lblChannel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblChannel.Location = New System.Drawing.Point(12, 275)
+        Me.lblChannel.Name = "lblChannel"
+        Me.lblChannel.Size = New System.Drawing.Size(115, 22)
+        Me.lblChannel.TabIndex = 38
+        Me.lblChannel.Text = "Channel"
+        Me.lblChannel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'btnOnOff
         '
@@ -451,7 +465,7 @@ Partial Class Screen
         Me.rtxNB.BackColor = System.Drawing.SystemColors.WindowText
         Me.rtxNB.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rtxNB.ForeColor = System.Drawing.SystemColors.Window
-        Me.rtxNB.Location = New System.Drawing.Point(214, 276)
+        Me.rtxNB.Location = New System.Drawing.Point(246, 255)
         Me.rtxNB.Name = "rtxNB"
         Me.rtxNB.Size = New System.Drawing.Size(63, 22)
         Me.rtxNB.TabIndex = 44
@@ -462,7 +476,7 @@ Partial Class Screen
         Me.rtxNR.BackColor = System.Drawing.SystemColors.WindowText
         Me.rtxNR.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rtxNR.ForeColor = System.Drawing.SystemColors.Window
-        Me.rtxNR.Location = New System.Drawing.Point(305, 276)
+        Me.rtxNR.Location = New System.Drawing.Point(337, 255)
         Me.rtxNR.Name = "rtxNR"
         Me.rtxNR.Size = New System.Drawing.Size(63, 22)
         Me.rtxNR.TabIndex = 45
@@ -473,7 +487,7 @@ Partial Class Screen
         Me.rtxMN.BackColor = System.Drawing.SystemColors.WindowText
         Me.rtxMN.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rtxMN.ForeColor = System.Drawing.SystemColors.Window
-        Me.rtxMN.Location = New System.Drawing.Point(396, 277)
+        Me.rtxMN.Location = New System.Drawing.Point(428, 256)
         Me.rtxMN.Name = "rtxMN"
         Me.rtxMN.Size = New System.Drawing.Size(63, 22)
         Me.rtxMN.TabIndex = 46
@@ -483,7 +497,7 @@ Partial Class Screen
         '
         Me.lblPreAmp.AutoSize = True
         Me.lblPreAmp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPreAmp.Location = New System.Drawing.Point(326, 235)
+        Me.lblPreAmp.Location = New System.Drawing.Point(460, 215)
         Me.lblPreAmp.Name = "lblPreAmp"
         Me.lblPreAmp.Size = New System.Drawing.Size(78, 24)
         Me.lblPreAmp.TabIndex = 47
@@ -492,58 +506,46 @@ Partial Class Screen
         'pgbSMeter
         '
         Me.pgbSMeter.ForeColor = System.Drawing.Color.LightGreen
-        Me.pgbSMeter.Location = New System.Drawing.Point(215, 326)
+        Me.pgbSMeter.Location = New System.Drawing.Point(246, 308)
         Me.pgbSMeter.Maximum = 50
         Me.pgbSMeter.Name = "pgbSMeter"
-        Me.pgbSMeter.Size = New System.Drawing.Size(488, 23)
+        Me.pgbSMeter.Size = New System.Drawing.Size(472, 23)
         Me.pgbSMeter.Step = 1
         Me.pgbSMeter.TabIndex = 48
         '
         'lblSMeter
         '
         Me.lblSMeter.AutoSize = True
-        Me.lblSMeter.Location = New System.Drawing.Point(191, 311)
+        Me.lblSMeter.Location = New System.Drawing.Point(223, 290)
         Me.lblSMeter.Name = "lblSMeter"
         Me.lblSMeter.Size = New System.Drawing.Size(15, 13)
         Me.lblSMeter.TabIndex = 50
         Me.lblSMeter.Text = "S"
         '
-        'lblMulti
-        '
-        Me.lblMulti.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.lblMulti.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblMulti.Location = New System.Drawing.Point(142, 348)
-        Me.lblMulti.Name = "lblMulti"
-        Me.lblMulti.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblMulti.Size = New System.Drawing.Size(72, 17)
-        Me.lblMulti.TabIndex = 51
-        Me.lblMulti.Text = "Power"
-        Me.lblMulti.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'lblXmitFreq
         '
         Me.lblXmitFreq.Font = New System.Drawing.Font("Microsoft Sans Serif", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblXmitFreq.Location = New System.Drawing.Point(213, 364)
+        Me.lblXmitFreq.Location = New System.Drawing.Point(121, 25)
         Me.lblXmitFreq.Name = "lblXmitFreq"
-        Me.lblXmitFreq.Size = New System.Drawing.Size(487, 53)
+        Me.lblXmitFreq.Size = New System.Drawing.Size(199, 53)
         Me.lblXmitFreq.TabIndex = 54
         Me.lblXmitFreq.Text = "146.220.00"
         Me.lblXmitFreq.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lblchannel
+        'lblbnkchan
         '
-        Me.lblchannel.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblchannel.Location = New System.Drawing.Point(886, 361)
-        Me.lblchannel.Name = "lblchannel"
-        Me.lblchannel.Size = New System.Drawing.Size(119, 56)
-        Me.lblchannel.TabIndex = 55
-        Me.lblchannel.Text = "A01"
-        Me.lblchannel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblbnkchan.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblbnkchan.Location = New System.Drawing.Point(886, 361)
+        Me.lblbnkchan.Name = "lblbnkchan"
+        Me.lblbnkchan.Size = New System.Drawing.Size(119, 56)
+        Me.lblbnkchan.TabIndex = 55
+        Me.lblbnkchan.Text = "A01"
+        Me.lblbnkchan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnBankUp
         '
         Me.btnBankUp.AutoSize = True
-        Me.btnBankUp.Location = New System.Drawing.Point(103, 246)
+        Me.btnBankUp.Location = New System.Drawing.Point(133, 312)
         Me.btnBankUp.Name = "btnBankUp"
         Me.btnBankUp.Size = New System.Drawing.Size(33, 33)
         Me.btnBankUp.TabIndex = 56
@@ -553,7 +555,7 @@ Partial Class Screen
         'btnBankDown
         '
         Me.btnBankDown.AutoSize = True
-        Me.btnBankDown.Location = New System.Drawing.Point(103, 272)
+        Me.btnBankDown.Location = New System.Drawing.Point(133, 338)
         Me.btnBankDown.Name = "btnBankDown"
         Me.btnBankDown.Size = New System.Drawing.Size(33, 29)
         Me.btnBankDown.TabIndex = 57
@@ -563,7 +565,7 @@ Partial Class Screen
         'btnChanUp
         '
         Me.btnChanUp.AutoSize = True
-        Me.btnChanUp.Location = New System.Drawing.Point(103, 307)
+        Me.btnChanUp.Location = New System.Drawing.Point(133, 253)
         Me.btnChanUp.Name = "btnChanUp"
         Me.btnChanUp.Size = New System.Drawing.Size(33, 33)
         Me.btnChanUp.TabIndex = 58
@@ -573,7 +575,7 @@ Partial Class Screen
         'btnChanDown
         '
         Me.btnChanDown.AutoSize = True
-        Me.btnChanDown.Location = New System.Drawing.Point(103, 336)
+        Me.btnChanDown.Location = New System.Drawing.Point(133, 282)
         Me.btnChanDown.Name = "btnChanDown"
         Me.btnChanDown.Size = New System.Drawing.Size(33, 29)
         Me.btnChanDown.TabIndex = 59
@@ -596,7 +598,7 @@ Partial Class Screen
         Me.lblMenuType.BackColor = System.Drawing.SystemColors.ControlText
         Me.lblMenuType.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMenuType.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblMenuType.Location = New System.Drawing.Point(163, 439)
+        Me.lblMenuType.Location = New System.Drawing.Point(166, 439)
         Me.lblMenuType.Name = "lblMenuType"
         Me.lblMenuType.Size = New System.Drawing.Size(52, 26)
         Me.lblMenuType.TabIndex = 61
@@ -629,7 +631,7 @@ Partial Class Screen
         '
         Me.lblATT.AutoSize = True
         Me.lblATT.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblATT.Location = New System.Drawing.Point(449, 235)
+        Me.lblATT.Location = New System.Drawing.Point(583, 215)
         Me.lblATT.Name = "lblATT"
         Me.lblATT.Size = New System.Drawing.Size(50, 24)
         Me.lblATT.TabIndex = 64
@@ -639,7 +641,7 @@ Partial Class Screen
         '
         Me.lblAGC.AutoSize = True
         Me.lblAGC.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAGC.Location = New System.Drawing.Point(540, 235)
+        Me.lblAGC.Location = New System.Drawing.Point(674, 215)
         Me.lblAGC.Name = "lblAGC"
         Me.lblAGC.Size = New System.Drawing.Size(73, 24)
         Me.lblAGC.TabIndex = 65
@@ -649,7 +651,7 @@ Partial Class Screen
         '
         Me.lblDUP.AutoSize = True
         Me.lblDUP.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDUP.Location = New System.Drawing.Point(645, 235)
+        Me.lblDUP.Location = New System.Drawing.Point(779, 215)
         Me.lblDUP.Name = "lblDUP"
         Me.lblDUP.Size = New System.Drawing.Size(58, 24)
         Me.lblDUP.TabIndex = 66
@@ -681,7 +683,7 @@ Partial Class Screen
         '
         Me.lblVOX.AutoSize = True
         Me.lblVOX.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblVOX.Location = New System.Drawing.Point(211, 235)
+        Me.lblVOX.Location = New System.Drawing.Point(345, 215)
         Me.lblVOX.Name = "lblVOX"
         Me.lblVOX.Size = New System.Drawing.Size(55, 24)
         Me.lblVOX.TabIndex = 70
@@ -769,7 +771,7 @@ Partial Class Screen
         '
         Me.lblMode.AutoSize = True
         Me.lblMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMode.Location = New System.Drawing.Point(534, 389)
+        Me.lblMode.Location = New System.Drawing.Point(326, 62)
         Me.lblMode.Name = "lblMode"
         Me.lblMode.Size = New System.Drawing.Size(29, 16)
         Me.lblMode.TabIndex = 79
@@ -796,15 +798,152 @@ Partial Class Screen
         Me.btnVFO.Text = "MEM0"
         Me.btnVFO.UseVisualStyleBackColor = True
         '
+        'btnMulti
+        '
+        Me.btnMulti.Location = New System.Drawing.Point(185, 334)
+        Me.btnMulti.Name = "btnMulti"
+        Me.btnMulti.Size = New System.Drawing.Size(64, 25)
+        Me.btnMulti.TabIndex = 82
+        Me.btnMulti.Text = "Power"
+        Me.btnMulti.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnMulti.UseVisualStyleBackColor = True
+        '
+        'grbXmitFreq
+        '
+        Me.grbXmitFreq.Controls.Add(Me.lblXmitFreq)
+        Me.grbXmitFreq.Controls.Add(Me.lblMode)
+        Me.grbXmitFreq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.grbXmitFreq.Location = New System.Drawing.Point(265, 361)
+        Me.grbXmitFreq.Name = "grbXmitFreq"
+        Me.grbXmitFreq.Size = New System.Drawing.Size(494, 100)
+        Me.grbXmitFreq.TabIndex = 83
+        Me.grbXmitFreq.TabStop = False
+        '
+        'grbButtons
+        '
+        Me.grbButtons.Controls.Add(Me.btnButton1)
+        Me.grbButtons.Controls.Add(Me.btnButton2)
+        Me.grbButtons.Controls.Add(Me.btnButton3)
+        Me.grbButtons.Controls.Add(Me.btnButton4)
+        Me.grbButtons.Controls.Add(Me.btnButton5)
+        Me.grbButtons.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.grbButtons.Location = New System.Drawing.Point(166, 468)
+        Me.grbButtons.Name = "grbButtons"
+        Me.grbButtons.Size = New System.Drawing.Size(804, 69)
+        Me.grbButtons.TabIndex = 84
+        Me.grbButtons.TabStop = False
+        '
+        'grbMicGain
+        '
+        Me.grbMicGain.Controls.Add(Me.lblRFPowerR)
+        Me.grbMicGain.Controls.Add(Me.lblMicGainR)
+        Me.grbMicGain.Controls.Add(Me.lblRFP)
+        Me.grbMicGain.Controls.Add(Me.lblMG)
+        Me.grbMicGain.Controls.Add(Me.lblRfPowerL)
+        Me.grbMicGain.Controls.Add(Me.lblMicGainL)
+        Me.grbMicGain.Controls.Add(Me.pgbRfPower)
+        Me.grbMicGain.Controls.Add(Me.pgbMicGain)
+        Me.grbMicGain.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.grbMicGain.Location = New System.Drawing.Point(166, 468)
+        Me.grbMicGain.Name = "grbMicGain"
+        Me.grbMicGain.Size = New System.Drawing.Size(804, 69)
+        Me.grbMicGain.TabIndex = 85
+        Me.grbMicGain.TabStop = False
+        Me.grbMicGain.Visible = False
+        '
+        'lblRFPowerR
+        '
+        Me.lblRFPowerR.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRFPowerR.Location = New System.Drawing.Point(565, 40)
+        Me.lblRFPowerR.Name = "lblRFPowerR"
+        Me.lblRFPowerR.Size = New System.Drawing.Size(75, 20)
+        Me.lblRFPowerR.TabIndex = 87
+        Me.lblRFPowerR.Text = "%"
+        Me.lblRFPowerR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblMicGainR
+        '
+        Me.lblMicGainR.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMicGainR.Location = New System.Drawing.Point(565, 11)
+        Me.lblMicGainR.Name = "lblMicGainR"
+        Me.lblMicGainR.Size = New System.Drawing.Size(75, 20)
+        Me.lblMicGainR.TabIndex = 86
+        Me.lblMicGainR.Text = "%"
+        Me.lblMicGainR.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'lblRFP
+        '
+        Me.lblRFP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRFP.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblRFP.Location = New System.Drawing.Point(29, 40)
+        Me.lblRFP.Name = "lblRFP"
+        Me.lblRFP.Size = New System.Drawing.Size(206, 20)
+        Me.lblRFP.TabIndex = 18
+        Me.lblRFP.Text = "RF POWER:"
+        Me.lblRFP.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblMG
+        '
+        Me.lblMG.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMG.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblMG.Location = New System.Drawing.Point(29, 11)
+        Me.lblMG.Name = "lblMG"
+        Me.lblMG.Size = New System.Drawing.Size(206, 20)
+        Me.lblMG.TabIndex = 17
+        Me.lblMG.Text = "MIC GAIN:"
+        Me.lblMG.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblRfPowerL
+        '
+        Me.lblRfPowerL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRfPowerL.Location = New System.Drawing.Point(521, 40)
+        Me.lblRfPowerL.Name = "lblRfPowerL"
+        Me.lblRfPowerL.Size = New System.Drawing.Size(46, 20)
+        Me.lblRfPowerL.TabIndex = 16
+        Me.lblRfPowerL.Text = "100"
+        Me.lblRfPowerL.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'lblMicGainL
+        '
+        Me.lblMicGainL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMicGainL.Location = New System.Drawing.Point(521, 11)
+        Me.lblMicGainL.Name = "lblMicGainL"
+        Me.lblMicGainL.Size = New System.Drawing.Size(46, 20)
+        Me.lblMicGainL.TabIndex = 15
+        Me.lblMicGainL.Text = "100"
+        Me.lblMicGainL.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'pgbRfPower
+        '
+        Me.pgbRfPower.BackColor = System.Drawing.Color.LightGray
+        Me.pgbRfPower.Location = New System.Drawing.Point(245, 40)
+        Me.pgbRfPower.Maximum = 60
+        Me.pgbRfPower.Name = "pgbRfPower"
+        Me.pgbRfPower.Size = New System.Drawing.Size(270, 23)
+        Me.pgbRfPower.TabIndex = 14
+        Me.pgbRfPower.Value = 50
+        '
+        'pgbMicGain
+        '
+        Me.pgbMicGain.BackColor = System.Drawing.Color.LightGray
+        Me.pgbMicGain.Location = New System.Drawing.Point(245, 11)
+        Me.pgbMicGain.Maximum = 60
+        Me.pgbMicGain.Name = "pgbMicGain"
+        Me.pgbMicGain.Size = New System.Drawing.Size(270, 23)
+        Me.pgbMicGain.TabIndex = 13
+        Me.pgbMicGain.Value = 50
+        '
         'Screen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1265, 672)
+        Me.Controls.Add(Me.btnMulti)
+        Me.Controls.Add(Me.lblMenuType)
+        Me.Controls.Add(Me.pgbSMeter)
         Me.Controls.Add(Me.btnVFO)
         Me.Controls.Add(Me.lblGPS)
-        Me.Controls.Add(Me.lblMode)
         Me.Controls.Add(Me.lblSPChannel)
         Me.Controls.Add(Me.lblMark)
         Me.Controls.Add(Me.btnHz)
@@ -821,17 +960,13 @@ Partial Class Screen
         Me.Controls.Add(Me.lblATT)
         Me.Controls.Add(Me.lblLock)
         Me.Controls.Add(Me.lblClock)
-        Me.Controls.Add(Me.lblMenuType)
         Me.Controls.Add(Me.lblTone)
         Me.Controls.Add(Me.btnChanDown)
         Me.Controls.Add(Me.btnChanUp)
         Me.Controls.Add(Me.btnBankDown)
         Me.Controls.Add(Me.btnBankUp)
-        Me.Controls.Add(Me.lblchannel)
-        Me.Controls.Add(Me.lblXmitFreq)
-        Me.Controls.Add(Me.lblMulti)
+        Me.Controls.Add(Me.lblbnkchan)
         Me.Controls.Add(Me.lblSMeter)
-        Me.Controls.Add(Me.pgbSMeter)
         Me.Controls.Add(Me.lblPreAmp)
         Me.Controls.Add(Me.rtxMN)
         Me.Controls.Add(Me.rtxNR)
@@ -841,7 +976,7 @@ Partial Class Screen
         Me.Controls.Add(Me.btnTuneUp)
         Me.Controls.Add(Me.btnCLR)
         Me.Controls.Add(Me.btnOnOff)
-        Me.Controls.Add(Me.lblChannelCtrl)
+        Me.Controls.Add(Me.lblChannel)
         Me.Controls.Add(Me.lblBank)
         Me.Controls.Add(Me.lblSquelch)
         Me.Controls.Add(Me.tkbSquelch)
@@ -866,16 +1001,18 @@ Partial Class Screen
         Me.Controls.Add(Me.btnRIT)
         Me.Controls.Add(Me.rtxXmitLed)
         Me.Controls.Add(Me.btnMode)
-        Me.Controls.Add(Me.btnButton5)
-        Me.Controls.Add(Me.btnButton4)
-        Me.Controls.Add(Me.btnButton3)
-        Me.Controls.Add(Me.btnButton2)
-        Me.Controls.Add(Me.btnButton1)
+        Me.Controls.Add(Me.grbXmitFreq)
+        Me.Controls.Add(Me.grbButtons)
+        Me.Controls.Add(Me.grbMicGain)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "Screen"
         Me.Text = "Screen"
         CType(Me.tkbVolume, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tkbSquelch, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grbXmitFreq.ResumeLayout(False)
+        Me.grbXmitFreq.PerformLayout()
+        Me.grbButtons.ResumeLayout(False)
+        Me.grbMicGain.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -910,7 +1047,7 @@ Partial Class Screen
     Friend WithEvents tkbSquelch As TrackBar
     Friend WithEvents lblSquelch As Label
     Friend WithEvents lblBank As Label
-    Friend WithEvents lblChannelCtrl As Label
+    Friend WithEvents lblChannel As Label
     Friend WithEvents btnOnOff As Button
     Friend WithEvents btnCLR As Button
     Friend WithEvents btnTuneUp As Button
@@ -922,9 +1059,8 @@ Partial Class Screen
     Friend WithEvents lblPreAmp As Label
     Friend WithEvents pgbSMeter As ProgressBar
     Friend WithEvents lblSMeter As Label
-    Friend WithEvents lblMulti As Label
     Friend WithEvents lblXmitFreq As Label
-    Friend WithEvents lblchannel As Label
+    Friend WithEvents lblbnkchan As Label
     Friend WithEvents btnBankUp As Button
     Friend WithEvents btnBankDown As Button
     Friend WithEvents btnChanUp As Button
@@ -951,4 +1087,16 @@ Partial Class Screen
     Friend WithEvents lblMode As Label
     Friend WithEvents lblGPS As Label
     Friend WithEvents btnVFO As Button
+    Friend WithEvents btnMulti As Button
+    Friend WithEvents grbXmitFreq As GroupBox
+    Friend WithEvents grbButtons As GroupBox
+    Friend WithEvents grbMicGain As GroupBox
+    Friend WithEvents pgbRfPower As ProgressBar
+    Friend WithEvents pgbMicGain As ProgressBar
+    Friend WithEvents lblRFP As Label
+    Friend WithEvents lblMG As Label
+    Friend WithEvents lblRfPowerL As Label
+    Friend WithEvents lblMicGainL As Label
+    Friend WithEvents lblMicGainR As Label
+    Friend WithEvents lblRFPowerR As Label
 End Class

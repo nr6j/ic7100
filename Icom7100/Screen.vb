@@ -359,6 +359,13 @@
         Button(&H0, &H0)
     End Sub
 
+    Private Sub btnMulti_MouseDown(sender As Object, e As EventArgs) Handles btnMulti.MouseDown
+        Button(&H1, &H6)
+    End Sub
+    Private Sub btnMulti_MouseUp(sender As Object, e As EventArgs) Handles btnMulti.MouseUp
+        Button(&H0, &H0)
+    End Sub
+
     Private Sub btnVFO_MouseDown(sender As Object, e As EventArgs) Handles btnVFO.MouseDown
         Button(&H1, &H8)
     End Sub
@@ -478,8 +485,47 @@
     Private Sub btnOnOff_MouseDown(sender As Object, e As EventArgs) Handles btnOnOff.MouseDown
         Terminal.SerialPort.DtrEnable = True
     End Sub
-
     Private Sub btnOnOff_MouseUp(sender As Object, e As EventArgs) Handles btnOnOff.MouseUp
         Terminal.SerialPort.DtrEnable = False
+    End Sub
+
+    Private Sub btnButton1_MouseDown(sender As Object, e As MouseEventArgs) Handles btnButton1.MouseDown
+
+    End Sub
+
+    Private Sub btnButton1_MouseUp(sender As Object, e As MouseEventArgs) Handles btnButton1.MouseUp
+
+    End Sub
+
+    Private Sub btnButton2_MouseDown(sender As Object, e As MouseEventArgs) Handles btnButton2.MouseDown
+
+    End Sub
+
+    Private Sub btnButton2_MouseUp(sender As Object, e As MouseEventArgs) Handles btnButton2.MouseUp
+
+    End Sub
+
+    Private Sub btnButton3_MouseDown(sender As Object, e As MouseEventArgs) Handles btnButton3.MouseDown
+
+    End Sub
+
+    Private Sub btnButton3_MouseUp(sender As Object, e As MouseEventArgs) Handles btnButton3.MouseUp
+
+    End Sub
+
+    Private Sub btnButton4_MouseDown(sender As Object, e As MouseEventArgs) Handles btnButton4.MouseDown
+
+    End Sub
+
+    Private Sub btnButton4_MouseUp(sender As Object, e As MouseEventArgs) Handles btnButton4.MouseUp
+
+    End Sub
+
+    Private Sub btnButton5_MouseDown(sender As Object, e As MouseEventArgs) Handles btnButton5.MouseDown
+
+    End Sub
+
+    Private Sub btnButton5_MouseUp(sender As Object, e As MouseEventArgs) Handles btnButton5.MouseUp
+
     End Sub
 End Class

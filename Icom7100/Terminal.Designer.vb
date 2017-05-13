@@ -31,6 +31,7 @@ Partial Class Terminal
         Me.btnScreen0 = New System.Windows.Forms.Button()
         Me.btnCapture = New System.Windows.Forms.Button()
         Me.btnscreen1 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'BtnInit
@@ -102,12 +103,22 @@ Partial Class Terminal
         Me.btnscreen1.Text = "Screen1"
         Me.btnscreen1.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(695, 48)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(53, 13)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "COM Port"
+        '
         'Terminal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.ClientSize = New System.Drawing.Size(833, 468)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnscreen1)
         Me.Controls.Add(Me.btnCapture)
         Me.Controls.Add(Me.btnScreen0)
@@ -118,6 +129,7 @@ Partial Class Terminal
         Me.Name = "Terminal"
         Me.Text = "Setup"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -129,4 +141,5 @@ Partial Class Terminal
     Friend WithEvents btnScreen0 As Button
     Friend WithEvents btnCapture As Button
     Friend WithEvents btnscreen1 As Button
+    Friend WithEvents Label1 As Label
 End Class

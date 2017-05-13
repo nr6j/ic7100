@@ -16,6 +16,7 @@ Public Class Terminal
     Dim screen0Cnt As Integer
     Private Delegate Sub UpdateFormDelegate(ByRef buff As Byte(), ByVal Count As Integer)
     Dim UpdateformDelegate1 As UpdateFormDelegate
+    Dim ScreenType As Integer = -1
     Dim SetFormVisible As Boolean = False
     Dim BankFormVisible As Boolean = False
     Dim ScreenFormVisible As Boolean = False
@@ -266,7 +267,7 @@ Public Class Terminal
     End Sub
 
     Private Sub NormalScreen()
-        Dim Temp As String
+        Dim Temp As String = ""
 
         If SetFormVisible Then
             SetForm.Hide()
@@ -340,15 +341,15 @@ Public Class Terminal
         End Select
         Select Case screen0(&H34) And &H7
             Case 1
-                Screen.lblMulti.Text = "Power"
+                Screen.btnMulti.Text = "Power"
             Case 2
-                Screen.lblMulti.Text = "SWR"
+                Screen.btnMulti.Text = "SWR"
             Case 3
-                Screen.lblMulti.Text = "ALC"
+                Screen.btnMulti.Text = "ALC"
             Case 4
-                Screen.lblMulti.Text = "Comp"
+                Screen.btnMulti.Text = "Comp"
             Case Else
-                Screen.lblMulti.Text = ""
+                Screen.btnMulti.Text = ""
         End Select
         If (screen0(&H34) And &H40) = &H40 Then
             Screen.rtxNB.Visible = True
@@ -424,7 +425,7 @@ Public Class Terminal
             Case Else
                 Screen.lblSPChannel.Text = ""
         End Select
-        Screen.lblchannel.Text = Encoding.ASCII.GetString(screen0, &H3F, 3)
+        Screen.lblbnkchan.Text = Encoding.ASCII.GetString(screen0, &H3F, 3)
         Screen.lblName.Text = Encoding.ASCII.GetString(screen0, &H42, 17)
         Select Case screen0(&H54) And &HF8
             Case &H98
@@ -500,6 +501,68 @@ Public Class Terminal
         Screen.btnButton3.Text = Encoding.ASCII.GetString(screen0, &H8B, 5)
         Screen.btnButton4.Text = Encoding.ASCII.GetString(screen0, &H90, 5)
         Screen.btnButton5.Text = Encoding.ASCII.GetString(screen0, &H95, 5)
+
+        'Previous bottom of screen type
+        If ScreenType <> screen0(&H9B) Then
+            Select Case ScreenType
+                Case &H0
+                Case &H3
+                    Screen.grbXmitFreq.Visible = False
+                    Screen.grbButtons.Visible = False
+                Case &H6
+                    Screen.grbMicGain.Visible = False
+                    Screen.lblChannel.Text = "Channel"
+                    Screen.lblBank.Text = "Bank"
+                Case &H8
+                Case &HC
+                Case &HD
+                Case &H12
+                Case &H13
+            End Select
+            ScreenType = screen0(&H9B)
+        End If
+        'Bottom of screen type
+        Select Case screen0(&H9B)
+            Case &H0    'Call Screen
+            Case &H3    'Normal Screen
+                If screen0(&HB5) = 0 Then
+                    If screen0(&HB8) <> &H0 And screen0(&HB8) <> &H20 Then
+                        Screen.lblXmitFreq.Text = Encoding.ASCII.GetString(screen0, &HB6, 3)
+                        Screen.lblXmitFreq.Text &= "."
+                        Screen.lblXmitFreq.Text &= Encoding.ASCII.GetString(screen0, &HB9, 3)
+                        Screen.lblXmitFreq.Text &= "."
+                        Screen.lblXmitFreq.Text &= Encoding.ASCII.GetString(screen0, &HBB, 2)
+                        Screen.lblMode.Text = Screen.btnMode.Text
+                    Else
+                        Screen.lblXmitFreq.Text = ""
+                    End If
+                ElseIf screen0(&HB6) = &H20 Then
+                    Screen.lblXmitFreq.Text = Encoding.ASCII.GetString(screen0, &HB6, &H10)
+                Else
+                    Screen.lblXmitFreq.Text = ""
+                End If
+                Screen.grbXmitFreq.Visible = True
+                Screen.grbButtons.Visible = True
+            Case &H6    'Mic Gain, etc.
+                Screen.lblMG.Text = Encoding.ASCII.GetString(screen0, &HB5, 10)
+                Screen.pgbMicGain.Value = screen0(&HBF)
+                S0Text(&HC0, 3, Screen.lblMicGainL.Text)
+                Screen.lblMicGainR.Text = Encoding.ASCII.GetString(screen0, &HC3, 3)
+                Screen.lblRFP.Text = Encoding.ASCII.GetString(screen0, &HC6, 10)
+                Screen.pgbRfPower.Value = screen0(&HD0)
+                S0Text(&HD1, 3, Screen.lblRfPowerL.Text)
+                Screen.lblRFPowerR.Text = Encoding.ASCII.GetString(screen0, &HD4, 3)
+                Screen.lblChannel.Text = Screen.lblMG.Text
+                Screen.lblBank.Text = Screen.lblRFP.Text
+                Screen.grbMicGain.Visible = True
+            Case &H8    'Voice
+            Case &HC    'SWR
+            Case &HD    'Scan
+            Case &H12   'DTMF
+            Case &H13   'Voice TX
+            Case Else   'Unknown
+        End Select
+
         Temp = Encoding.ASCII.GetString(screen0, &HA1, 19)
         For i = Len(Temp) To 1 Step -1
             If Mid(Temp, i, 1) = " " Then
@@ -509,23 +572,8 @@ Public Class Terminal
                 Exit For
             End If
         Next
-        If screen0(&HB5) = 0 Then
-            If screen0(&HB8) <> &H0 And screen0(&HB8) <> &H20 Then
-                Screen.lblXmitFreq.Text = Encoding.ASCII.GetString(screen0, &HB6, 3)
-                Screen.lblXmitFreq.Text &= "."
-                Screen.lblXmitFreq.Text &= Encoding.ASCII.GetString(screen0, &HB9, 3)
-                Screen.lblXmitFreq.Text &= "."
-                Screen.lblXmitFreq.Text &= Encoding.ASCII.GetString(screen0, &HBB, 2)
-                Screen.lblMode.Text = Screen.btnMode.Text
-            Else
-                Screen.lblXmitFreq.Text = ""
-            End If
-        ElseIf screen0(&HB6) = &H20 Then
-            Screen.lblXmitFreq.Text = Encoding.ASCII.GetString(screen0, &HB6, &H10)
-        Else
-            Screen.lblXmitFreq.Text = ""
-        End If
         Screen.lblGPS.Visible = False
+
     End Sub
     Private Sub DRScreen()
 
