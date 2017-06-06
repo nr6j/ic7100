@@ -37,6 +37,7 @@ Public Class Terminal
         prcProcessCount = 0
 
         'BtnInit_Click(sender, e)
+        Screen.pctScope.CreateGraphics()
 
         For i = 0 To 5
             prcCount(i) = 0
@@ -496,19 +497,17 @@ Public Class Terminal
         Else
             Screen.lblFreq.Text = ""
         End If
-        Screen.btnButton1.Text = Encoding.ASCII.GetString(screen0, &H81, 5)
-        Screen.btnButton2.Text = Encoding.ASCII.GetString(screen0, &H86, 5)
-        Screen.btnButton3.Text = Encoding.ASCII.GetString(screen0, &H8B, 5)
-        Screen.btnButton4.Text = Encoding.ASCII.GetString(screen0, &H90, 5)
-        Screen.btnButton5.Text = Encoding.ASCII.GetString(screen0, &H95, 5)
+        S0Text(&H81, 5, Screen.btnButton1.Text)
+        S0Text(&H86, 5, Screen.btnButton2.Text)
+        S0Text(&H8B, 5, Screen.btnButton3.Text)
+        S0Text(&H90, 5, Screen.btnButton4.Text)
+        S0Text(&H95, 5, Screen.btnButton5.Text)
 
         'Previous bottom of screen type
         If ScreenType <> screen0(&H9B) Then
             Select Case ScreenType
-                Case &H0
-                Case &H3
+                Case &H0, &H3
                     Screen.grbXmitFreq.Visible = False
-                    Screen.grbButtons.Visible = False
                 Case &H6
                     Screen.grbMicGain.Visible = False
                     Screen.lblChannel.Text = "Channel"
@@ -516,15 +515,17 @@ Public Class Terminal
                 Case &H8
                 Case &HC
                 Case &HD
+                Case &HE
+                    Screen.grbScope.Visible = False
                 Case &H12
                 Case &H13
             End Select
-            ScreenType = screen0(&H9B)
         End If
+        ScreenType = screen0(&H9B)
+
         'Bottom of screen type
         Select Case screen0(&H9B)
-            Case &H0    'Call Screen
-            Case &H3    'Normal Screen
+            Case &H0, &H3    'Normal Screen
                 If screen0(&HB5) = 0 Then
                     If screen0(&HB8) <> &H0 And screen0(&HB8) <> &H20 Then
                         Screen.lblXmitFreq.Text = Encoding.ASCII.GetString(screen0, &HB6, 3)
@@ -543,9 +544,11 @@ Public Class Terminal
                 End If
                 Screen.grbXmitFreq.Visible = True
                 Screen.grbButtons.Visible = True
+                Screen.lblMenuType.Visible = True
+                Screen.lblMenuType2.Visible = False
+
             Case &H6    'Mic Gain, etc.
                 Screen.lblMG.Text = Encoding.ASCII.GetString(screen0, &HB5, 10)
-                Screen.pgbMicGain.Value = screen0(&HBF)
                 S0Text(&HC0, 3, Screen.lblMicGainL.Text)
                 Screen.lblMicGainR.Text = Encoding.ASCII.GetString(screen0, &HC3, 3)
                 Screen.lblRFP.Text = Encoding.ASCII.GetString(screen0, &HC6, 10)
@@ -554,10 +557,30 @@ Public Class Terminal
                 Screen.lblRFPowerR.Text = Encoding.ASCII.GetString(screen0, &HD4, 3)
                 Screen.lblChannel.Text = Screen.lblMG.Text
                 Screen.lblBank.Text = Screen.lblRFP.Text
+                Screen.pgbMicGain.Value = screen0(&HBF)
+                Screen.grbButtons.Visible = False
                 Screen.grbMicGain.Visible = True
+                Screen.lblMenuType.Visible = True
+                Screen.lblMenuType2.Visible = False
             Case &H8    'Voice
             Case &HC    'SWR
             Case &HD    'Scan
+                Screen.grbButtons.Visible = True
+                Screen.lblMenuType.Visible = False
+                Screen.lblMenuType2.Visible = True
+            Case &HE    'Scope Screen
+                Screen.grbButtons.Visible = True
+                Screen.grbScope.Visible = True
+                Screen.lblMenuType.Visible = False
+                Screen.lblMenuType2.Visible = True
+                If screen0(&HB5) = 0 Then
+                    Screen.btnButton1.Text = "Stop"
+                Else
+                    Screen.btnButton1.Text = "Run"
+                    'Screen.pctScope.Invalidate()
+                End If
+                Screen.pctScope.Invalidate()
+                S0Text(&HB9, 4, Screen.lblStep.Text)
             Case &H12   'DTMF
             Case &H13   'Voice TX
             Case Else   'Unknown
@@ -569,6 +592,7 @@ Public Class Terminal
                 Continue For
             Else
                 Screen.lblMenuType.Text = Mid(Temp, 1, i)
+                Screen.lblMenuType2.Text = Mid(Temp, 1, i)
                 Exit For
             End If
         Next
@@ -718,13 +742,23 @@ Public Class Terminal
         RxHistForm.Display()
     End Sub
     Public Function ClockDigit(ByVal value As Integer) As Char
-        If value = &HF Then
-            Return "0"
-        ElseIf value < &HF Then
-            Return " "
-        Else
-            Return Chr(value)
-        End If
+        Select Case value
+            Case &HF
+                Return "0"
+            Case &H1C
+                Stop
+                Return " "
+            Case &H1D
+                Stop
+                Return " "
+            Case &H1E
+                Stop
+                Return " "
+            Case &H1F
+                Return "Δ"
+            Case Else
+                Return Chr(value)
+        End Select
     End Function
 
     Public Sub S0Text(ByVal ptr As Integer, ByVal cnt As Integer, ByRef text As String)

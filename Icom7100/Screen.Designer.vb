@@ -104,11 +104,17 @@ Partial Class Screen
         Me.lblMicGainL = New System.Windows.Forms.Label()
         Me.pgbRfPower = New System.Windows.Forms.ProgressBar()
         Me.pgbMicGain = New System.Windows.Forms.ProgressBar()
+        Me.lblMenuType2 = New System.Windows.Forms.Label()
+        Me.grbScope = New System.Windows.Forms.GroupBox()
+        Me.lblStep = New System.Windows.Forms.Label()
+        Me.pctScope = New System.Windows.Forms.PictureBox()
         CType(Me.tkbVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tkbSquelch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grbXmitFreq.SuspendLayout()
         Me.grbButtons.SuspendLayout()
         Me.grbMicGain.SuspendLayout()
+        Me.grbScope.SuspendLayout()
+        CType(Me.pctScope, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnButton1
@@ -545,41 +551,45 @@ Partial Class Screen
         'btnBankUp
         '
         Me.btnBankUp.AutoSize = True
+        Me.btnBankUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBankUp.Location = New System.Drawing.Point(133, 312)
         Me.btnBankUp.Name = "btnBankUp"
         Me.btnBankUp.Size = New System.Drawing.Size(33, 33)
         Me.btnBankUp.TabIndex = 56
-        Me.btnBankUp.Text = "^"
+        Me.btnBankUp.Text = "↑"
         Me.btnBankUp.UseVisualStyleBackColor = True
         '
         'btnBankDown
         '
         Me.btnBankDown.AutoSize = True
+        Me.btnBankDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBankDown.Location = New System.Drawing.Point(133, 338)
         Me.btnBankDown.Name = "btnBankDown"
-        Me.btnBankDown.Size = New System.Drawing.Size(33, 29)
+        Me.btnBankDown.Size = New System.Drawing.Size(33, 30)
         Me.btnBankDown.TabIndex = 57
-        Me.btnBankDown.Text = "v"
+        Me.btnBankDown.Text = "↓"
         Me.btnBankDown.UseVisualStyleBackColor = True
         '
         'btnChanUp
         '
         Me.btnChanUp.AutoSize = True
-        Me.btnChanUp.Location = New System.Drawing.Point(133, 253)
+        Me.btnChanUp.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChanUp.Location = New System.Drawing.Point(133, 256)
         Me.btnChanUp.Name = "btnChanUp"
-        Me.btnChanUp.Size = New System.Drawing.Size(33, 33)
+        Me.btnChanUp.Size = New System.Drawing.Size(33, 30)
         Me.btnChanUp.TabIndex = 58
-        Me.btnChanUp.Text = "^"
+        Me.btnChanUp.Text = "↑"
         Me.btnChanUp.UseVisualStyleBackColor = True
         '
         'btnChanDown
         '
         Me.btnChanDown.AutoSize = True
+        Me.btnChanDown.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChanDown.Location = New System.Drawing.Point(133, 282)
         Me.btnChanDown.Name = "btnChanDown"
-        Me.btnChanDown.Size = New System.Drawing.Size(33, 29)
+        Me.btnChanDown.Size = New System.Drawing.Size(33, 30)
         Me.btnChanDown.TabIndex = 59
-        Me.btnChanDown.Text = "v"
+        Me.btnChanDown.Text = "↓"
         Me.btnChanDown.UseVisualStyleBackColor = True
         '
         'lblTone
@@ -815,7 +825,7 @@ Partial Class Screen
         Me.grbXmitFreq.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.grbXmitFreq.Location = New System.Drawing.Point(265, 361)
         Me.grbXmitFreq.Name = "grbXmitFreq"
-        Me.grbXmitFreq.Size = New System.Drawing.Size(494, 100)
+        Me.grbXmitFreq.Size = New System.Drawing.Size(494, 86)
         Me.grbXmitFreq.TabIndex = 83
         Me.grbXmitFreq.TabStop = False
         '
@@ -844,9 +854,9 @@ Partial Class Screen
         Me.grbMicGain.Controls.Add(Me.pgbRfPower)
         Me.grbMicGain.Controls.Add(Me.pgbMicGain)
         Me.grbMicGain.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.grbMicGain.Location = New System.Drawing.Point(166, 468)
+        Me.grbMicGain.Location = New System.Drawing.Point(265, 361)
         Me.grbMicGain.Name = "grbMicGain"
-        Me.grbMicGain.Size = New System.Drawing.Size(804, 69)
+        Me.grbMicGain.Size = New System.Drawing.Size(572, 69)
         Me.grbMicGain.TabIndex = 85
         Me.grbMicGain.TabStop = False
         Me.grbMicGain.Visible = False
@@ -854,7 +864,7 @@ Partial Class Screen
         'lblRFPowerR
         '
         Me.lblRFPowerR.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRFPowerR.Location = New System.Drawing.Point(565, 40)
+        Me.lblRFPowerR.Location = New System.Drawing.Point(512, 40)
         Me.lblRFPowerR.Name = "lblRFPowerR"
         Me.lblRFPowerR.Size = New System.Drawing.Size(75, 20)
         Me.lblRFPowerR.TabIndex = 87
@@ -864,7 +874,7 @@ Partial Class Screen
         'lblMicGainR
         '
         Me.lblMicGainR.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMicGainR.Location = New System.Drawing.Point(565, 11)
+        Me.lblMicGainR.Location = New System.Drawing.Point(512, 11)
         Me.lblMicGainR.Name = "lblMicGainR"
         Me.lblMicGainR.Size = New System.Drawing.Size(75, 20)
         Me.lblMicGainR.TabIndex = 86
@@ -875,7 +885,7 @@ Partial Class Screen
         '
         Me.lblRFP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRFP.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblRFP.Location = New System.Drawing.Point(29, 40)
+        Me.lblRFP.Location = New System.Drawing.Point(-22, 40)
         Me.lblRFP.Name = "lblRFP"
         Me.lblRFP.Size = New System.Drawing.Size(206, 20)
         Me.lblRFP.TabIndex = 18
@@ -886,7 +896,7 @@ Partial Class Screen
         '
         Me.lblMG.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMG.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblMG.Location = New System.Drawing.Point(29, 11)
+        Me.lblMG.Location = New System.Drawing.Point(-22, 11)
         Me.lblMG.Name = "lblMG"
         Me.lblMG.Size = New System.Drawing.Size(206, 20)
         Me.lblMG.TabIndex = 17
@@ -896,7 +906,7 @@ Partial Class Screen
         'lblRfPowerL
         '
         Me.lblRfPowerL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRfPowerL.Location = New System.Drawing.Point(521, 40)
+        Me.lblRfPowerL.Location = New System.Drawing.Point(469, 40)
         Me.lblRfPowerL.Name = "lblRfPowerL"
         Me.lblRfPowerL.Size = New System.Drawing.Size(46, 20)
         Me.lblRfPowerL.TabIndex = 16
@@ -906,7 +916,7 @@ Partial Class Screen
         'lblMicGainL
         '
         Me.lblMicGainL.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMicGainL.Location = New System.Drawing.Point(521, 11)
+        Me.lblMicGainL.Location = New System.Drawing.Point(469, 11)
         Me.lblMicGainL.Name = "lblMicGainL"
         Me.lblMicGainL.Size = New System.Drawing.Size(46, 20)
         Me.lblMicGainL.TabIndex = 15
@@ -916,7 +926,7 @@ Partial Class Screen
         'pgbRfPower
         '
         Me.pgbRfPower.BackColor = System.Drawing.Color.LightGray
-        Me.pgbRfPower.Location = New System.Drawing.Point(245, 40)
+        Me.pgbRfPower.Location = New System.Drawing.Point(190, 40)
         Me.pgbRfPower.Maximum = 60
         Me.pgbRfPower.Name = "pgbRfPower"
         Me.pgbRfPower.Size = New System.Drawing.Size(270, 23)
@@ -926,12 +936,53 @@ Partial Class Screen
         'pgbMicGain
         '
         Me.pgbMicGain.BackColor = System.Drawing.Color.LightGray
-        Me.pgbMicGain.Location = New System.Drawing.Point(245, 11)
+        Me.pgbMicGain.Location = New System.Drawing.Point(190, 11)
         Me.pgbMicGain.Maximum = 60
         Me.pgbMicGain.Name = "pgbMicGain"
         Me.pgbMicGain.Size = New System.Drawing.Size(270, 23)
         Me.pgbMicGain.TabIndex = 13
         Me.pgbMicGain.Value = 50
+        '
+        'lblMenuType2
+        '
+        Me.lblMenuType2.AutoSize = True
+        Me.lblMenuType2.BackColor = System.Drawing.SystemColors.ControlText
+        Me.lblMenuType2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMenuType2.ForeColor = System.Drawing.SystemColors.Control
+        Me.lblMenuType2.Location = New System.Drawing.Point(166, 366)
+        Me.lblMenuType2.Name = "lblMenuType2"
+        Me.lblMenuType2.Size = New System.Drawing.Size(52, 26)
+        Me.lblMenuType2.TabIndex = 86
+        Me.lblMenuType2.Text = "M-1"
+        Me.lblMenuType2.Visible = False
+        '
+        'grbScope
+        '
+        Me.grbScope.Controls.Add(Me.lblStep)
+        Me.grbScope.Controls.Add(Me.pctScope)
+        Me.grbScope.Location = New System.Drawing.Point(265, 361)
+        Me.grbScope.Name = "grbScope"
+        Me.grbScope.Size = New System.Drawing.Size(512, 63)
+        Me.grbScope.TabIndex = 87
+        Me.grbScope.TabStop = False
+        '
+        'lblStep
+        '
+        Me.lblStep.AutoSize = True
+        Me.lblStep.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStep.Location = New System.Drawing.Point(462, 39)
+        Me.lblStep.Name = "lblStep"
+        Me.lblStep.Size = New System.Drawing.Size(48, 24)
+        Me.lblStep.TabIndex = 1
+        Me.lblStep.Text = "0.5k"
+        '
+        'pctScope
+        '
+        Me.pctScope.Location = New System.Drawing.Point(0, 10)
+        Me.pctScope.Name = "pctScope"
+        Me.pctScope.Size = New System.Drawing.Size(452, 53)
+        Me.pctScope.TabIndex = 0
+        Me.pctScope.TabStop = False
         '
         'Screen
         '
@@ -939,6 +990,8 @@ Partial Class Screen
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1265, 672)
+        Me.Controls.Add(Me.grbXmitFreq)
+        Me.Controls.Add(Me.lblMenuType2)
         Me.Controls.Add(Me.btnMulti)
         Me.Controls.Add(Me.lblMenuType)
         Me.Controls.Add(Me.pgbSMeter)
@@ -1001,9 +1054,9 @@ Partial Class Screen
         Me.Controls.Add(Me.btnRIT)
         Me.Controls.Add(Me.rtxXmitLed)
         Me.Controls.Add(Me.btnMode)
-        Me.Controls.Add(Me.grbXmitFreq)
         Me.Controls.Add(Me.grbButtons)
         Me.Controls.Add(Me.grbMicGain)
+        Me.Controls.Add(Me.grbScope)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "Screen"
         Me.Text = "Screen"
@@ -1013,6 +1066,9 @@ Partial Class Screen
         Me.grbXmitFreq.PerformLayout()
         Me.grbButtons.ResumeLayout(False)
         Me.grbMicGain.ResumeLayout(False)
+        Me.grbScope.ResumeLayout(False)
+        Me.grbScope.PerformLayout()
+        CType(Me.pctScope, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1099,4 +1155,8 @@ Partial Class Screen
     Friend WithEvents lblMicGainL As Label
     Friend WithEvents lblMicGainR As Label
     Friend WithEvents lblRFPowerR As Label
+    Friend WithEvents lblMenuType2 As Label
+    Friend WithEvents grbScope As GroupBox
+    Friend WithEvents lblStep As Label
+    Friend WithEvents pctScope As PictureBox
 End Class

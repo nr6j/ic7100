@@ -307,6 +307,8 @@
             Else
                 Button(&H3, &H33)
             End If
+        ElseIf lblmenutype.text = "SCOPE" Then
+            Button(&HE, &H33)
         Else
             Button(&H3, &H33)
         End If
@@ -316,7 +318,11 @@
     End Sub
 
     Private Sub btnButton2_MouseDown(sender As Object, e As EventArgs) Handles btnButton2.MouseDown
-        Button(&H3, &H34)
+        If lblMenuType.Text = "SCOPE" Then
+            Button(&HE, &H34)
+        Else
+            Button(&H3, &H34)
+        End If
     End Sub
     Private Sub btnButton2_MouseUp(sender As Object, e As EventArgs) Handles btnButton2.MouseUp
         Button(&H0, &H0)
@@ -329,6 +335,8 @@
             Else
                 Button(&H0, &H35)
             End If
+        ElseIf lblmenutype.text = "SCOPE" Then
+            Button(&HE, &H35)
         Else
             Button(&H3, &H35)
         End If
@@ -344,6 +352,8 @@
             Else
                 Button(&H0, &H36)
             End If
+        ElseIf lblmenutype.text = "SCOPE" Then
+            Button(&HE, &H36)
         Else
             Button(&H3, &H36)
         End If
@@ -353,7 +363,11 @@
     End Sub
 
     Private Sub btnButton5_MouseDown(sender As Object, e As EventArgs) Handles btnButton5.MouseDown
-        Button(&H3, &H37)
+        If lblMenuType.Text = "SCOPE" Then
+            Button(&HE, &H37)
+        Else
+            Button(&H3, &H37)
+        End If
     End Sub
     Private Sub btnButton5_MouseUp(sender As Object, e As EventArgs) Handles btnButton5.MouseUp
         Button(&H0, &H0)
@@ -489,43 +503,17 @@
         Terminal.SerialPort.DtrEnable = False
     End Sub
 
-    Private Sub btnButton1_MouseDown(sender As Object, e As MouseEventArgs) Handles btnButton1.MouseDown
+    Private Sub pctScope_Paint(sender As Object, e As PaintEventArgs) Handles pctScope.Paint
+        Dim g As Graphics = e.Graphics
+        ' Paint the picture here
+        Dim blueBrush As New Drawing.SolidBrush(Color.Blue)
+        Dim i, j As Integer
 
-    End Sub
-
-    Private Sub btnButton1_MouseUp(sender As Object, e As MouseEventArgs) Handles btnButton1.MouseUp
-
-    End Sub
-
-    Private Sub btnButton2_MouseDown(sender As Object, e As MouseEventArgs) Handles btnButton2.MouseDown
-
-    End Sub
-
-    Private Sub btnButton2_MouseUp(sender As Object, e As MouseEventArgs) Handles btnButton2.MouseUp
-
-    End Sub
-
-    Private Sub btnButton3_MouseDown(sender As Object, e As MouseEventArgs) Handles btnButton3.MouseDown
-
-    End Sub
-
-    Private Sub btnButton3_MouseUp(sender As Object, e As MouseEventArgs) Handles btnButton3.MouseUp
-
-    End Sub
-
-    Private Sub btnButton4_MouseDown(sender As Object, e As MouseEventArgs) Handles btnButton4.MouseDown
-
-    End Sub
-
-    Private Sub btnButton4_MouseUp(sender As Object, e As MouseEventArgs) Handles btnButton4.MouseUp
-
-    End Sub
-
-    Private Sub btnButton5_MouseDown(sender As Object, e As MouseEventArgs) Handles btnButton5.MouseDown
-
-    End Sub
-
-    Private Sub btnButton5_MouseUp(sender As Object, e As MouseEventArgs) Handles btnButton5.MouseUp
+        For i = 0 To 60 'screen0(&HB6)
+            j = screen0(&HBD + i) * 3
+            'If j = 0 Then j = 1
+            g.FillRectangle(blueBrush, i * 7, 50 - j, 6, 50)
+        Next
 
     End Sub
 End Class
